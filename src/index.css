@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --bg-parchment: #FDFBF7;
+    --bg-card: #FFFFFF;
+    --primary-gold: #8E6E37;
+    --gold-accent: #C5A059;
+    --dark-obsidian: #1A1816;
+    --border-color: #E5E1D8;
+    --text-primary: #1A1816;
+    --text-secondary: #5D574F;
+  }
+
+  body {
+    font-family: 'Noto Serif Arabic', 'Source Serif 4', serif;
+    background-color: #FDFBF7;
+    color: #1A1816;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dark body, body.dark, html.dark body {
+    background-color: #1A1816;
+    color: #FDFBF7;
+  }
+}
+
+/* Geometric Top Bar */
+.top-geometric-border {
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(to right, #C5A059, #8E6E37, #C5A059);
+}
+
+/* Texture Overlay */
+.texture-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.gold-border {
+  border: 1px solid #E5E1D8;
+}
+
+.dark .gold-border {
+  border: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+.khatim-star {
+  clip-path: polygon(50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0% 50%, 35% 35%);
+}
+
+.glass-panel {
+  background: rgba(253, 251, 247, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid #E5E1D8;
+}
+
+.dark .glass-panel {
+  background: rgba(26, 24, 22, 0.95);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+/* Hide scrollbars */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(142, 110, 55, 0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: #8E6E37;
+  border-radius: 9999px;
+}
+

@@ -1,0 +1,6 @@
+{
+  "name": "منصة السيرة النبوية الشريفة",
+  "description": "منصة معرفية تفاعلية وموثوقة للسيرة النبوية الشريفة مع مخطط زمني، خرائط، أحداث وغزوات، ومساعد ذكي بنظام RAG",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
