@@ -15,6 +15,7 @@ import { FarewellArticleView } from './components/FarewellArticleView';
 import { SearchView } from './components/SearchView';
 import { AiRagView } from './components/AiRagView';
 import { BookmarksDrawer } from './components/BookmarksDrawer';
+import { EventDetailsModal } from './components/EventDetailsModal';
 
 export function App() {
   const [currentPage, setCurrentPage] = useState<PageType>('home');
@@ -42,7 +43,7 @@ export function App() {
     }
   });
 
-  const [_selectedEventForModal, setSelectedEventForModal] = useState<SeerahEvent | null>(null);
+  const [selectedEventForModal, setSelectedEventForModal] = useState<SeerahEvent | null>(null);
 
   useEffect(() => {
     try {
@@ -208,6 +209,15 @@ export function App() {
         bookmarks={bookmarks}
         onRemoveBookmark={handleRemoveBookmark}
         onSelectPage={setCurrentPage}
+        lang={lang}
+      />
+
+      {/* Event Details & Lessons Modal */}
+      <EventDetailsModal
+        event={selectedEventForModal}
+        onClose={() => setSelectedEventForModal(null)}
+        onAddBookmark={handleAddBookmark}
+        isBookmarked={selectedEventForModal ? bookmarks.some(b => b.id === `event-${selectedEventForModal.id}`) : false}
         lang={lang}
       />
 

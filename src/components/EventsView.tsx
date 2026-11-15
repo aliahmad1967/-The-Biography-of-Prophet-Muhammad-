@@ -83,7 +83,8 @@ export const EventsView: React.FC<EventsViewProps> = ({ onSelectEvent, lang }) =
         {filteredEvents.map((evt) => (
           <div
             key={evt.id}
-            className="bg-[#FCFBF8] dark:bg-[#14211A] p-6 rounded-2xl border border-[#DDD5C3] dark:border-[#253A2E] hover:border-[#0E5335] dark:hover:border-[#D4AF37] shadow-sm hover:shadow-md transition-all space-y-4 flex flex-col justify-between"
+            onClick={() => onSelectEvent(evt)}
+            className="bg-[#FCFBF8] dark:bg-[#14211A] p-6 rounded-2xl border border-[#DDD5C3] dark:border-[#253A2E] hover:border-[#0E5335] dark:hover:border-[#D4AF37] shadow-sm hover:shadow-md transition-all space-y-4 flex flex-col justify-between cursor-pointer group"
           >
             <div className="space-y-3">
               <div className="flex items-center justify-between border-b border-[#DDD5C3] dark:border-[#253A2E] pb-2">
@@ -95,7 +96,7 @@ export const EventsView: React.FC<EventsViewProps> = ({ onSelectEvent, lang }) =
                 </span>
               </div>
 
-              <h3 className="text-xl font-bold font-serif text-[#161B18] dark:text-[#F6F2E8]">
+              <h3 className="text-xl font-bold font-serif text-[#161B18] dark:text-[#F6F2E8] group-hover:text-[#0E5335] dark:group-hover:text-[#E2C15A] transition-colors">
                 {evt.title}
               </h3>
 
@@ -114,16 +115,20 @@ export const EventsView: React.FC<EventsViewProps> = ({ onSelectEvent, lang }) =
 
             {/* Footer with Lessons and Sources */}
             <div className="pt-4 border-t border-[#DDD5C3] dark:border-[#253A2E] space-y-2 text-xs">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between gap-2">
                 <span className="font-bold text-[#4F544E] dark:text-[#D5CFC2]/80">
                   المصادر: {evt.sources.map(s => s.name).join('، ')}
                 </span>
                 <button
-                  onClick={() => onSelectEvent(evt)}
-                  className="text-[#0E5335] dark:text-[#E2C15A] font-bold hover:underline flex items-center gap-1"
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onSelectEvent(evt);
+                  }}
+                  className="text-[#0E5335] dark:text-[#E2C15A] font-bold hover:underline flex items-center gap-1 shrink-0"
                 >
-                  <span>عرض التفاصيل والدروس</span>
-                  <span className="material-symbols-outlined text-sm">arrow_back</span>
+                  <span>{lang === 'ar' ? 'عرض التفاصيل والدروس' : 'View Details & Lessons'}</span>
+                  <span className="material-symbols-outlined text-sm group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
                 </button>
               </div>
             </div>
