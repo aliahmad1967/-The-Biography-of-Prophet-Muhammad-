@@ -87,7 +87,7 @@ export function App() {
   };
 
   return (
-    <div className={`min-h-screen flex flex-col justify-between ${readingMode ? 'bg-[#F4EFE6] dark:bg-[#0F1213]' : ''}`}>
+    <div className={`min-h-screen flex flex-col justify-between ${readingMode ? 'bg-[#EFE9DA] dark:bg-[#0A100D]' : ''}`}>
       
       {/* Texture Background Overlay */}
       <div className="fixed inset-0 texture-overlay z-0 pointer-events-none" />

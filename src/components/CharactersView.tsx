@@ -30,12 +30,12 @@ export const CharactersView: React.FC<CharactersViewProps> = ({ lang }) => {
     <div className="space-y-8 pb-12">
       
       {/* Header & Controls */}
-      <div className="bg-white dark:bg-[#2D2926] p-6 rounded-2xl border border-[#E5E1D8] dark:border-[#3A3530] shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="bg-[#FCFBF8] dark:bg-[#14211A] p-6 rounded-2xl border border-[#DDD5C3] dark:border-[#253A2E] shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="text-right">
-          <h1 className="text-2xl md:text-3xl font-bold font-serif text-[#1A1816] dark:text-[#FDFBF7]">
+          <h1 className="text-2xl md:text-3xl font-bold font-serif text-[#161B18] dark:text-[#F6F2E8]">
             {lang === 'ar' ? 'أعلام السيرة النبوية والصحابة الكرام' : 'Companions & Historical Figures'}
           </h1>
-          <p className="text-xs text-[#5D574F] dark:text-[#E5E1D8]/70">
+          <p className="text-xs text-[#4F544E] dark:text-[#D5CFC2]/80">
             {lang === 'ar' ? 'سير وحياة الرجال والنساء الذين عاصروا ونصروا الدعوة النبوية' : 'Biographies of those who supported and lived during the Prophetic era'}
           </p>
         </div>
@@ -47,9 +47,9 @@ export const CharactersView: React.FC<CharactersViewProps> = ({ lang }) => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder={lang === 'ar' ? 'ابحث عن صحابي أو شخصية...' : 'Search companions...'}
-            className="w-full py-2 pr-9 pl-3 rounded-xl bg-[#FAF8F4] dark:bg-[#1A1816] text-xs text-[#1A1816] dark:text-[#FDFBF7] border border-[#E5E1D8] dark:border-[#3A3530] focus:outline-none"
+            className="w-full py-2 pr-9 pl-3 rounded-xl bg-[#EFEAE0] dark:bg-[#0F1A14] text-xs text-[#161B18] dark:text-[#F6F2E8] border border-[#DDD5C3] dark:border-[#253A2E] focus:outline-none focus:border-[#0E5335] dark:focus:border-[#D4AF37]"
           />
-          <span className="material-symbols-outlined absolute right-2.5 top-2 text-[#8E6E37] text-lg">
+          <span className="material-symbols-outlined absolute right-2.5 top-2 text-[#0E5335] dark:text-[#E2C15A] text-lg">
             search
           </span>
         </div>
@@ -65,8 +65,8 @@ export const CharactersView: React.FC<CharactersViewProps> = ({ lang }) => {
               onClick={() => setSelectedCategory(cat.id)}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                 isActive
-                  ? 'bg-[#8E6E37] text-white shadow-xs'
-                  : 'bg-white dark:bg-[#2D2926] text-[#1A1816] dark:text-[#FDFBF7] border border-[#E5E1D8] dark:border-[#3A3530] hover:bg-[#FAF8F4]'
+                  ? 'bg-[#0E5335] text-white border border-[#D4AF37]/50 shadow-xs'
+                  : 'bg-[#FCFBF8] dark:bg-[#14211A] text-[#161B18] dark:text-[#F6F2E8] border border-[#DDD5C3] dark:border-[#253A2E] hover:bg-[#EFEAE0] dark:hover:bg-[#0F1A14]'
               }`}
             >
               {lang === 'ar' ? cat.labelAr : cat.labelEn}
@@ -80,44 +80,44 @@ export const CharactersView: React.FC<CharactersViewProps> = ({ lang }) => {
         {filteredCharacters.map((char) => (
           <div
             key={char.id}
-            className="bg-white dark:bg-[#2D2926] p-6 rounded-2xl border border-[#E5E1D8] dark:border-[#3A3530] hover:border-[#8E6E37] shadow-sm hover:shadow-md transition-all space-y-4 flex flex-col justify-between"
+            className="bg-[#FCFBF8] dark:bg-[#14211A] p-6 rounded-2xl border border-[#DDD5C3] dark:border-[#253A2E] hover:border-[#0E5335] dark:hover:border-[#D4AF37] shadow-sm hover:shadow-md transition-all space-y-4 flex flex-col justify-between"
           >
             <div className="space-y-3">
-              <div className="flex items-center gap-3 border-b border-[#E5E1D8] dark:border-[#3A3530] pb-3">
-                <div className="w-12 h-12 rounded-full bg-[#FAF8F4] dark:bg-[#1A1816] text-[#8E6E37] dark:text-[#C5A059] border border-[#E5E1D8] dark:border-[#3A3530] flex items-center justify-center font-bold text-lg shrink-0">
+              <div className="flex items-center gap-3 border-b border-[#DDD5C3] dark:border-[#253A2E] pb-3">
+                <div className="w-12 h-12 rounded-full bg-[#EFEAE0] dark:bg-[#0F1A14] text-[#0E5335] dark:text-[#E2C15A] border border-[#D4AF37]/50 flex items-center justify-center font-bold text-lg shrink-0">
                   <span className="material-symbols-outlined">person</span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold font-serif text-[#1A1816] dark:text-[#FDFBF7]">
+                  <h3 className="text-lg font-bold font-serif text-[#161B18] dark:text-[#F6F2E8]">
                     {char.name}
                   </h3>
-                  <span className="text-xs text-[#8E6E37] dark:text-[#C5A059] font-medium block">
+                  <span className="text-xs text-[#8B6514] dark:text-[#E2C15A] font-medium block">
                     {char.title}
                   </span>
                 </div>
               </div>
 
-              <p className="text-xs text-[#5D574F] dark:text-[#E5E1D8]/80 leading-relaxed">
+              <p className="text-xs text-[#4F544E] dark:text-[#D5CFC2]/85 leading-relaxed">
                 {char.bio}
               </p>
 
               {/* Relation */}
-              <div className="p-2.5 rounded-lg bg-[#FAF8F4] dark:bg-[#1A1816] text-xs font-medium text-[#5D574F] dark:text-[#E5E1D8]/80 border border-[#E5E1D8] dark:border-[#3A3530]">
-                <span className="font-bold text-[#8E6E37] dark:text-[#C5A059]">صلته بالنبي ﷺ: </span>
+              <div className="p-2.5 rounded-lg bg-[#EFEAE0]/70 dark:bg-[#0F1A14] text-xs font-medium text-[#4F544E] dark:text-[#D5CFC2]/90 border border-[#DDD5C3] dark:border-[#253A2E]">
+                <span className="font-bold text-[#0E5335] dark:text-[#E2C15A]">صلته بالنبي ﷺ: </span>
                 {char.relationToProphet}
               </div>
 
               {/* Quote if available */}
               {char.famousQuote && (
-                <div className="p-3 rounded-xl bg-[#FAF8F4] dark:bg-[#1A1816] border-r-2 border-[#8E6E37] italic text-xs text-[#5D574F] dark:text-[#E5E1D8]/90">
+                <div className="p-3 rounded-xl bg-[#EFEAE0]/70 dark:bg-[#0F1A14] border border-[#D4AF37]/40 italic text-xs text-[#161B18] dark:text-[#F6F2E8]">
                   "{char.famousQuote}"
                 </div>
               )}
             </div>
 
             {/* Key Moments */}
-            <div className="pt-3 border-t border-[#E5E1D8] dark:border-[#3A3530] text-[11px] text-[#5D574F] dark:text-[#E5E1D8]/70 space-y-1">
-              <span className="font-bold text-[#8E6E37] dark:text-[#C5A059]">أبرز المواقف: </span>
+            <div className="pt-3 border-t border-[#DDD5C3] dark:border-[#253A2E] text-[11px] text-[#4F544E] dark:text-[#D5CFC2]/80 space-y-1">
+              <span className="font-bold text-[#0E5335] dark:text-[#E2C15A]">أبرز المواقف: </span>
               <ul className="list-disc list-inside space-y-0.5">
                 {char.keyMoments.slice(0, 2).map((m, idx) => (
                   <li key={idx} className="line-clamp-1">{m}</li>

@@ -33,12 +33,12 @@ export const EventsView: React.FC<EventsViewProps> = ({ onSelectEvent, lang }) =
     <div className="space-y-8 pb-12">
       
       {/* Header & Controls */}
-      <div className="bg-white dark:bg-[#2D2926] p-6 rounded-2xl border border-[#E5E1D8] dark:border-[#3A3530] shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="bg-[#FCFBF8] dark:bg-[#14211A] p-6 rounded-2xl border border-[#DDD5C3] dark:border-[#253A2E] shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="text-right">
-          <h1 className="text-2xl md:text-3xl font-bold font-serif text-[#1A1816] dark:text-[#FDFBF7]">
+          <h1 className="text-2xl md:text-3xl font-bold font-serif text-[#161B18] dark:text-[#F6F2E8]">
             {lang === 'ar' ? 'الأحداث والغزوات الكبرى' : 'Battles & Historic Events'}
           </h1>
-          <p className="text-xs text-[#5D574F] dark:text-[#E5E1D8]/70">
+          <p className="text-xs text-[#4F544E] dark:text-[#D5CFC2]/80">
             {lang === 'ar' ? 'استعرض تفاصيل الغزوات والمعاهدات والمحطات التاريخية في السيرة' : 'Detailed records of major Prophetic battles and treaties'}
           </p>
         </div>
@@ -50,15 +50,15 @@ export const EventsView: React.FC<EventsViewProps> = ({ onSelectEvent, lang }) =
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder={lang === 'ar' ? 'تصفية باسم الغزوة أو المكان...' : 'Filter events...'}
-            className="w-full py-2 pr-9 pl-3 rounded-xl bg-[#FAF8F4] dark:bg-[#1A1816] text-xs text-[#1A1816] dark:text-[#FDFBF7] border border-[#E5E1D8] dark:border-[#3A3530] focus:outline-none"
+            className="w-full py-2 pr-9 pl-3 rounded-xl bg-[#EFEAE0] dark:bg-[#0F1A14] text-xs text-[#161B18] dark:text-[#F6F2E8] border border-[#DDD5C3] dark:border-[#253A2E] focus:outline-none focus:border-[#0E5335] dark:focus:border-[#D4AF37]"
           />
-          <span className="material-symbols-outlined absolute right-2.5 top-2 text-[#8E6E37] text-lg">
+          <span className="material-symbols-outlined absolute right-2.5 top-2 text-[#0E5335] dark:text-[#E2C15A] text-lg">
             search
           </span>
         </div>
       </div>
 
-      {/* Categories Pills */}
+      {/* Category Filter Buttons */}
       <div className="flex flex-wrap items-center gap-2">
         {categories.map((cat) => {
           const isActive = selectedCategory === cat.id;
@@ -68,8 +68,8 @@ export const EventsView: React.FC<EventsViewProps> = ({ onSelectEvent, lang }) =
               onClick={() => setSelectedCategory(cat.id)}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                 isActive
-                  ? 'bg-[#8E6E37] text-white shadow-xs'
-                  : 'bg-white dark:bg-[#2D2926] text-[#1A1816] dark:text-[#FDFBF7] border border-[#E5E1D8] dark:border-[#3A3530] hover:bg-[#FAF8F4]'
+                  ? 'bg-[#0E5335] text-white border border-[#D4AF37]/50 shadow-xs'
+                  : 'bg-[#FCFBF8] dark:bg-[#14211A] text-[#161B18] dark:text-[#F6F2E8] border border-[#DDD5C3] dark:border-[#253A2E] hover:bg-[#EFEAE0] dark:hover:bg-[#0F1A14]'
               }`}
             >
               {lang === 'ar' ? cat.labelAr : cat.labelEn}
@@ -83,29 +83,29 @@ export const EventsView: React.FC<EventsViewProps> = ({ onSelectEvent, lang }) =
         {filteredEvents.map((evt) => (
           <div
             key={evt.id}
-            className="bg-white dark:bg-[#2D2926] p-6 rounded-2xl border border-[#E5E1D8] dark:border-[#3A3530] hover:border-[#8E6E37] shadow-sm hover:shadow-md transition-all space-y-4 flex flex-col justify-between"
+            className="bg-[#FCFBF8] dark:bg-[#14211A] p-6 rounded-2xl border border-[#DDD5C3] dark:border-[#253A2E] hover:border-[#0E5335] dark:hover:border-[#D4AF37] shadow-sm hover:shadow-md transition-all space-y-4 flex flex-col justify-between"
           >
             <div className="space-y-3">
-              <div className="flex items-center justify-between border-b border-[#E5E1D8] dark:border-[#3A3530] pb-2">
-                <span className="text-xs font-bold text-[#8E6E37] dark:text-[#C5A059] font-mono">
+              <div className="flex items-center justify-between border-b border-[#DDD5C3] dark:border-[#253A2E] pb-2">
+                <span className="text-xs font-bold text-[#8B6514] dark:text-[#E2C15A] font-mono tabular-nums">
                   {evt.yearHijri} ({evt.yearCE} م)
                 </span>
-                <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-[#8E6E37]/10 text-[#8E6E37] dark:text-[#C5A059] font-bold">
+                <span className="text-[11px] text-[#0E5335] dark:text-[#E2C15A] font-bold">
                   {evt.locationName}
                 </span>
               </div>
 
-              <h3 className="text-xl font-bold font-serif text-[#1A1816] dark:text-[#FDFBF7]">
+              <h3 className="text-xl font-bold font-serif text-[#161B18] dark:text-[#F6F2E8]">
                 {evt.title}
               </h3>
 
-              <p className="text-xs text-[#5D574F] dark:text-[#E5E1D8]/80 leading-relaxed">
+              <p className="text-xs text-[#4F544E] dark:text-[#D5CFC2]/85 leading-relaxed">
                 {evt.summary}
               </p>
 
               {/* Outcome / Impact */}
               {evt.outcomeOrImpact && (
-                <div className="p-3 rounded-xl bg-[#FAF8F4] dark:bg-[#1A1816] text-xs font-serif text-[#8E6E37] dark:text-[#C5A059] border border-[#E5E1D8] dark:border-[#3A3530]">
+                <div className="p-3 rounded-xl bg-[#EFEAE0]/70 dark:bg-[#0F1A14] text-xs font-serif text-[#0E5335] dark:text-[#E2C15A] border border-[#DDD5C3] dark:border-[#253A2E]">
                   <span className="font-bold">النتيجة والأثر: </span>
                   {evt.outcomeOrImpact}
                 </div>
@@ -113,14 +113,14 @@ export const EventsView: React.FC<EventsViewProps> = ({ onSelectEvent, lang }) =
             </div>
 
             {/* Footer with Lessons and Sources */}
-            <div className="pt-4 border-t border-[#E5E1D8] dark:border-[#3A3530] space-y-2 text-xs">
+            <div className="pt-4 border-t border-[#DDD5C3] dark:border-[#253A2E] space-y-2 text-xs">
               <div className="flex items-center justify-between">
-                <span className="font-bold text-[#5D574F] dark:text-[#E5E1D8]/70">
+                <span className="font-bold text-[#4F544E] dark:text-[#D5CFC2]/80">
                   المصادر: {evt.sources.map(s => s.name).join('، ')}
                 </span>
                 <button
                   onClick={() => onSelectEvent(evt)}
-                  className="text-[#8E6E37] dark:text-[#C5A059] font-bold hover:underline flex items-center gap-1"
+                  className="text-[#0E5335] dark:text-[#E2C15A] font-bold hover:underline flex items-center gap-1"
                 >
                   <span>عرض التفاصيل والدروس</span>
                   <span className="material-symbols-outlined text-sm">arrow_back</span>

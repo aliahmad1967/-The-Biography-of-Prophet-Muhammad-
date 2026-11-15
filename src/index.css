@@ -1,37 +1,41 @@
 @import "tailwindcss";
 
-@variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
   :root {
-    --bg-parchment: #FDFBF7;
-    --bg-card: #FFFFFF;
-    --primary-gold: #8E6E37;
-    --gold-accent: #C5A059;
-    --dark-obsidian: #1A1816;
-    --border-color: #E5E1D8;
-    --text-primary: #1A1816;
-    --text-secondary: #5D574F;
+    --bg-marble: #F6F2E8;
+    --bg-card: #FCFBF8;
+    --bg-travertine: #EFEAE0;
+    --rawdah-emerald: #0E5335;
+    --rawdah-emerald-deep: #0A3D27;
+    --nabawi-gold: #8B6514;
+    --nabawi-gold-bright: #D4AF37;
+    --lapis-medallion: #1B3B68;
+    --dark-marble: #0D1511;
+    --border-marble: #DDD5C3;
+    --text-primary: #161B18;
+    --text-secondary: #4F544E;
   }
 
   body {
     font-family: 'Noto Serif Arabic', 'Source Serif 4', serif;
-    background-color: #FDFBF7;
-    color: #1A1816;
+    background-color: #F6F2E8;
+    color: #161B18;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   .dark body, body.dark, html.dark body {
-    background-color: #1A1816;
-    color: #FDFBF7;
+    background-color: #0D1511;
+    color: #F6F2E8;
   }
 }
 
-/* Geometric Top Bar */
+/* Masjid an-Nabawi Architectural Top Bar (Rawdah Emerald, Royal Gold & Mihrab Lapis) */
 .top-geometric-border {
   height: 6px;
   width: 100%;
-  background: linear-gradient(to right, #C5A059, #8E6E37, #C5A059);
+  background: linear-gradient(to right, #0E5335, #D4AF37, #1B3B68, #D4AF37, #0E5335);
 }
 
 /* Texture Overlay */
@@ -41,11 +45,11 @@
 }
 
 .gold-border {
-  border: 1px solid #E5E1D8;
+  border: 1px solid #DDD5C3;
 }
 
 .dark .gold-border {
-  border: 1px solid rgba(197, 160, 89, 0.3);
+  border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .khatim-star {
@@ -53,14 +57,14 @@
 }
 
 .glass-panel {
-  background: rgba(253, 251, 247, 0.95);
+  background: rgba(246, 242, 232, 0.95);
   backdrop-filter: blur(12px);
-  border: 1px solid #E5E1D8;
+  border: 1px solid #DDD5C3;
 }
 
 .dark .glass-panel {
-  background: rgba(26, 24, 22, 0.95);
-  border: 1px solid rgba(197, 160, 89, 0.3);
+  background: rgba(13, 21, 17, 0.95);
+  border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 /* Hide scrollbars */
@@ -78,10 +82,12 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(142, 110, 55, 0.05);
+  background: rgba(14, 83, 53, 0.06);
 }
 ::-webkit-scrollbar-thumb {
-  background: #8E6E37;
+  background: #0E5335;
   border-radius: 9999px;
 }
-
+.dark ::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+}
